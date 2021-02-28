@@ -1,5 +1,5 @@
 package THINQ;
-
+import java.util.*;
 import java.awt.Component;
 import java.awt.EventQueue;
 
@@ -16,9 +16,11 @@ import java.awt.Window;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class landing_page extends JFrame {
-
+public class landing_page extends JFrame {	
 	private JPanel contentPane;
+	
+	
+	public static ArrayList<lecture> all_lectures = new ArrayList<lecture>();
 
 	/**
 	 * Launch the application.
@@ -29,6 +31,7 @@ public class landing_page extends JFrame {
 				try {
 					landing_page frame = new landing_page();
 					frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -49,6 +52,35 @@ public class landing_page extends JFrame {
 	
 	
 	private void initialize() {
+		
+		
+		
+		lecture l1=new lecture("101","qwerty","physics","1021","1");
+		lecture l2=new lecture("102","qwerty1","physic2s","1301","2");
+		lecture l3=new lecture("103","qwerty21","phy3sics","1011","2");
+		lecture l4=new lecture("104","qwerty12","phy1sics","1301","3");
+		lecture l5=new lecture("105","qwert3y","physi3cs","1031","3");
+		lecture l6=new lecture("106","qwerty3","physi1cs","1301","1");
+		lecture l7=new lecture("107","qwert2y","physi3cs","1101","1");
+		lecture l8=new lecture("108","qwer1ty","phys1ics","1011","2");
+		lecture l9=new lecture("109","qwe1rty","phys3ics","1031","1");
+		lecture l10=new lecture("1010","qw3erty","phy1sics","1101","2");
+		lecture l11=new lecture("1011","qwe1rty","phy3sics","1011","1");
+		
+		all_lectures.add(l1);
+		all_lectures.add(l2);
+		all_lectures.add(l3);
+		all_lectures.add(l4);
+		all_lectures.add(l5);
+		all_lectures.add(l6);
+		all_lectures.add(l10);
+		all_lectures.add(l7);
+		all_lectures.add(l8);
+		all_lectures.add(l9);
+		all_lectures.add(l11);
+		
+		
+		
 		
 		setBounds(100, 100, 896, 470);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -109,3 +141,5 @@ public class landing_page extends JFrame {
 	}
 
 }
+
+
