@@ -51,6 +51,8 @@ public class studentsignup extends JFrame {
 	 */
 	public studentsignup() {
 		
+		
+		
 		conn = connect.dbConnector();
 		
 		setBounds(100, 100, 896, 470);
@@ -79,6 +81,7 @@ public class studentsignup extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
+					int count = students_list.size();
 					String query = "INSERT INTO users(username,password) VALUES(?,?)";
 					PreparedStatement pst= conn.prepareStatement(query);
 					pst.setString(1, un.getText());
@@ -90,7 +93,6 @@ public class studentsignup extends JFrame {
 					obj.email = textField_2.getText();
 					obj.contact = textField_1.getText();
 					obj.number_of_classes = "0";
-					obj.id = count;
 					obj.userName = un.getText();
 					obj.password = pass.getText();
 					students_list.add(count,obj);

@@ -85,6 +85,21 @@ public class teacherlogin extends JFrame {
 					if(count == 1)
 					{
 						JOptionPane.showMessageDialog(null, "username and password is correct");
+						
+						thinqer temp = new thinqer();
+						for(int i=0;i<teachersignup.teacher_list.size();i++)
+						{
+							temp = teachersignup.teacher_list.get(i);
+							if(temp.userName.equals(textField.getText()))
+							{
+								break;
+							}
+						}
+						
+						afterLoginTeacher t_login1 = new afterLoginTeacher();
+						t_login1.fun(temp);
+						t_login1.setVisible(true);
+						dispose();
 					}
 					else if(count>1)
 						JOptionPane.showMessageDialog(null, "Duplicate username and password");

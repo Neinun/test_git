@@ -43,6 +43,9 @@ public class studentlogin extends JFrame {
 	 */
 	public studentlogin() {
 		
+		learner l1=new learner("sumit","simp","Sumit Kumar Singh","singh.sumitkumar1@gmail.com","0","9470371605");
+		studentsignup.students_list.add(l1);
+		
 		conn = connect.dbConnector();
 		
 		setBounds(100, 100, 896, 470);

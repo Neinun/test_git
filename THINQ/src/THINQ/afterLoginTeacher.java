@@ -19,14 +19,14 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
 
-public class afterLoginStudent extends JFrame {
+public class afterLoginTeacher extends JFrame {
 
 	private JPanel contentPane;
 	JTextArea textArea = new JTextArea();
 	TextArea textArea_2 = new TextArea();
 	private final TextArea textArea_1 = new TextArea();
-	private final JTextField choice = new JTextField();
 
 	/**
 	 * Launch the application.
@@ -35,7 +35,7 @@ public class afterLoginStudent extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					afterLoginStudent frame = new afterLoginStudent();
+					afterLoginTeacher frame = new afterLoginTeacher();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,9 +47,15 @@ public class afterLoginStudent extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public afterLoginStudent() {
-		choice.setBounds(235, 429, 211, 53);
-		choice.setColumns(10);
+	public afterLoginTeacher() {
+		textField_3.setBounds(420, 433, 96, 19);
+		textField_3.setColumns(10);
+		textField_2.setBounds(303, 433, 96, 19);
+		textField_2.setColumns(10);
+		textField_1.setBounds(197, 433, 96, 19);
+		textField_1.setColumns(10);
+		textField.setBounds(91, 433, 96, 19);
+		textField.setColumns(10);
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 892, 529);
@@ -68,66 +74,71 @@ public class afterLoginStudent extends JFrame {
 		
 		contentPane.add(textArea_1);
 		
-		contentPane.add(choice);
-		
-		JButton btnNewButton = new JButton("book Class");
+		JButton btnNewButton = new JButton("Add Class");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				String ch = choice.getText();
-				lecture temp=new lecture();
-				thinqer temp1 = new thinqer();
-				
-				for(int i=0;i<landing_page.all_lectures.size();i++)
-				{
-					temp=landing_page.all_lectures.get(i);
-					if(temp.ID.equals(ch))
-					{
-						gobject.upcoming_classes.add(temp);
-						update_classes(gobject);
-						break;
-					}
-				}
-				
-				for(int i=0;i<teachersignup.teacher_list.size();i++)
-				{
-					temp1 = teachersignup.teacher_list.get(i);
-					if(temp1.userName.equals(temp.teacherName))
-					{
-						temp1.upcoming_classes.add(temp);
-						temp1.number_of_classes +=1;
-						teachersignup.teacher_list.add(i,temp1);
-						break;
-						
-					}
+				try {
+					
+					lecture l1 = new lecture();
+					l1.ID = String.valueOf(landing_page.all_lectures.size());
+					l1.teacherName= textField.getText();
+					l1.specialization = textField_1.getText();
+					l1.duration = textField_2.getText();
+					l1.cost = textField_3.getText();
+					
+					System.out.println(landing_page.all_lectures.size());
+					landing_page.all_lectures.add(l1);
+					System.out.println(landing_page.all_lectures.size());
+					String s = details(landing_page.all_lectures);
+					textArea_2.setText(s);
 					
 					
+					
+				}catch(Exception e1){
+					
 				}
-				
 				
 			}
 		});
-		btnNewButton.setBounds(495, 445, 85, 21);
+		btnNewButton.setBounds(496, 461, 85, 21);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("logout");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				dispose();
-				landing_page obj=new landing_page();
-				obj.setVisible(true);
-			}
-		});
-		btnNewButton_1.setBounds(734, 445, 85, 21);
-		contentPane.add(btnNewButton_1);
+		contentPane.add(textField);
+		
+		contentPane.add(textField_1);
+		
+		contentPane.add(textField_2);
+		
+		contentPane.add(textField_3);
+		
+		JLabel lblNewLabel = new JLabel("username");
+		lblNewLabel.setBounds(111, 410, 45, 13);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("specialization");
+		lblNewLabel_1.setBounds(216, 410, 45, 13);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("duration");
+		lblNewLabel_2.setBounds(322, 410, 45, 13);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("cost");
+		lblNewLabel_3.setBounds(445, 410, 45, 13);
+		contentPane.add(lblNewLabel_3);
 		
 		
 		
 	}
+	thinqer gobject = new thinqer();
+	private final JTextField textField = new JTextField();
+	private final JTextField textField_1 = new JTextField();
+	private final JTextField textField_2 = new JTextField();
+	private final JTextField textField_3 = new JTextField();
 	
-	learner gobject = new learner();
-	public void fun(learner obj)
+	
+	public void fun(thinqer obj)
 	{
 		gobject = obj;
 		String temp,temp2,temp3;
@@ -139,10 +150,10 @@ public class afterLoginStudent extends JFrame {
 		textArea_2.setText(temp3);
 	}
 	
-	public String details(learner l)
+	public String details(thinqer l)
 	{
 		String x;
-		x = "Name :"+l.name+"\n"+"email :"+l.email+"\n"+"Contact :"+l.contact+"\n"+"number of classes :"+l.number_of_classes+"\n" +"---------------------------------------------------------";
+		x = "Name :"+l.userName+"\n"+"email :"+l.email+"\n"+"Contact :"+l.contact+"\n"+"number of classes :"+l.number_of_classes+"\n" +"---------------------------------------------------------";
 		return x;
 	}
 	public String details(ArrayList<lecture> l)
@@ -160,18 +171,6 @@ public class afterLoginStudent extends JFrame {
 		return t;
 	}
 	
-	void update_classes(learner l)
-	{
-		String s,s1;
-		int temp = Integer.valueOf(l.number_of_classes);
-		temp += 1;
-		l.number_of_classes = String.valueOf(temp);
-		s = details(l.upcoming_classes);
-		s1 = details(l);
-		textArea.setText(s1);
-		textArea_1.setText(s);
-	}
-	
 	void update_classes(thinqer l)
 	{
 		String s,s1;
@@ -182,12 +181,5 @@ public class afterLoginStudent extends JFrame {
 		s1 = details(l);
 		textArea.setText(s1);
 		textArea_1.setText(s);
-	}
-	
-	public String details(thinqer l)
-	{
-		String x;
-		x = "Name :"+l.name+"\n"+"email :"+l.email+"\n"+"Contact :"+l.contact+"\n"+"number of classes :"+l.number_of_classes+"\n" +"---------------------------------------------------------";
-		return x;
 	}
 }

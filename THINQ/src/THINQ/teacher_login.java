@@ -84,7 +84,23 @@ public class teacher_login {
 					if(count == 1)
 					{
 						JOptionPane.showMessageDialog(null, "username and password is correct");
+						
+						thinqer temp = new thinqer();
+						for(int i=0;i<teachersignup.teacher_list.size();i++)
+						{
+							temp = teachersignup.teacher_list.get(i);
+							if(temp.userName.equals(un.getText()))
+							{
+								break;
+							}
+						}
+						System.out.println("yo");
+						afterLoginTeacher t_login1 = new afterLoginTeacher();
+						t_login1.fun(temp);
+						t_login1.setVisible(true);
 						frame.dispose();
+						
+							
 					}
 					else if(count>1)
 						JOptionPane.showMessageDialog(null, "Duplicate username and password");

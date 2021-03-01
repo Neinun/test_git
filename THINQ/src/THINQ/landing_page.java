@@ -55,7 +55,7 @@ public class landing_page extends JFrame {
 		
 		
 		
-		lecture l1=new lecture("101","qwerty","physics","1021","1");
+		lecture l1=new lecture("101","teacher1","physics","1021","1");
 		lecture l2=new lecture("102","qwerty1","physic2s","1301","2");
 		lecture l3=new lecture("103","qwerty21","phy3sics","1011","2");
 		lecture l4=new lecture("104","qwerty12","phy1sics","1301","3");
@@ -78,6 +78,10 @@ public class landing_page extends JFrame {
 		all_lectures.add(l8);
 		all_lectures.add(l9);
 		all_lectures.add(l11);
+		
+		
+		thinqer t1=new thinqer("teacher1","1","paul","paul@gmail.com","0","9108358068");
+		teachersignup.teacher_list.add(t1);
 		
 		
 		
