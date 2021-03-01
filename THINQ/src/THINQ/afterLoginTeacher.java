@@ -20,6 +20,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import java.awt.Color;
 
 public class afterLoginTeacher extends JFrame {
 
@@ -48,33 +51,35 @@ public class afterLoginTeacher extends JFrame {
 	 * Create the frame.
 	 */
 	public afterLoginTeacher() {
-		textField_3.setBounds(420, 433, 96, 19);
+		textField_3.setBounds(486, 433, 96, 19);
 		textField_3.setColumns(10);
-		textField_2.setBounds(303, 433, 96, 19);
+		textField_2.setBounds(362, 433, 96, 19);
 		textField_2.setColumns(10);
-		textField_1.setBounds(197, 433, 96, 19);
+		textField_1.setBounds(224, 433, 96, 19);
 		textField_1.setColumns(10);
 		textField.setBounds(91, 433, 96, 19);
 		textField.setColumns(10);
-		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 892, 529);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.ORANGE);
+		contentPane.setForeground(Color.BLACK);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textArea.setBounds(91, 81, 355, 134);
+		textArea.setBounds(91, 112, 355, 134);
 		contentPane.add(textArea);
 		
 		
 		textArea_2.setBounds(159, 252, 602, 107);
 		contentPane.add(textArea_2);
-		textArea_1.setBounds(495, 81, 348, 134);
+		textArea_1.setBounds(452, 112, 348, 134);
 		
 		contentPane.add(textArea_1);
 		
-		JButton btnNewButton = new JButton("Add Class");
+		JButton btnNewButton = new JButton("ADD CLASS");
+		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 16));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -101,7 +106,7 @@ public class afterLoginTeacher extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(496, 461, 85, 21);
+		btnNewButton.setBounds(634, 410, 127, 42);
 		contentPane.add(btnNewButton);
 		
 		contentPane.add(textField);
@@ -112,21 +117,42 @@ public class afterLoginTeacher extends JFrame {
 		
 		contentPane.add(textField_3);
 		
-		JLabel lblNewLabel = new JLabel("username");
-		lblNewLabel.setBounds(111, 410, 45, 13);
+		JLabel lblNewLabel = new JLabel("USERNAME");
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblNewLabel.setBounds(91, 410, 96, 13);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("specialization");
-		lblNewLabel_1.setBounds(216, 410, 45, 13);
+		JLabel lblNewLabel_1 = new JLabel("SPECIALIZATION");
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblNewLabel_1.setBounds(208, 410, 134, 13);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("duration");
-		lblNewLabel_2.setBounds(322, 410, 45, 13);
+		JLabel lblNewLabel_2 = new JLabel("DURATION");
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblNewLabel_2.setBounds(362, 410, 96, 13);
 		contentPane.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("cost");
-		lblNewLabel_3.setBounds(445, 410, 45, 13);
+		JLabel lblNewLabel_3 = new JLabel("COST");
+		lblNewLabel_3.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblNewLabel_3.setBounds(511, 410, 45, 13);
 		contentPane.add(lblNewLabel_3);
+		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\neinun\\Downloads\\8880b1ab-0f2a-4fb3-90a2-64c33821.png"));
+		lblNewLabel_4.setBounds(407, 10, 87, 92);
+		
+		contentPane.add(lblNewLabel_4);
+		
+		JButton btnNewButton_1 = new JButton("LOGOUT");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				dispose();
+				landing_page obj=new landing_page();
+				obj.setVisible(true);
+			}
+		});
+		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		btnNewButton_1.setBounds(10, 10, 110, 21);
+		contentPane.add(btnNewButton_1);
 		
 		
 		
@@ -136,6 +162,7 @@ public class afterLoginTeacher extends JFrame {
 	private final JTextField textField_1 = new JTextField();
 	private final JTextField textField_2 = new JTextField();
 	private final JTextField textField_3 = new JTextField();
+	private final JLabel lblNewLabel_4 = new JLabel("New label");
 	
 	
 	public void fun(thinqer obj)
@@ -165,7 +192,7 @@ public class afterLoginTeacher extends JFrame {
 		for(int i=0; i<l.size();i++)
 		{
 			temp = l.get(i);
-			x = temp.ID +"\t"+ temp.specialization +"\t"+ temp.teacherName +"\t"+ temp.duration +"\t"+ temp.cost;
+			x = temp.ID +"\t"+ temp.specialization +"\t"+ temp.teacherName +"\t"+ temp.duration +"\t"+ temp.cost+"\t";
 			t = t +"\n"+ x ;
 		}
 		return t;

@@ -50,6 +50,7 @@ public class studentsignup extends JFrame {
 	 * Create the frame.
 	 */
 	public studentsignup() {
+		getContentPane().setBackground(Color.ORANGE);
 		
 		
 		
@@ -62,21 +63,21 @@ public class studentsignup extends JFrame {
 		
 		
 		un = new JTextField();
-		un.setBounds(191, 137, 188, 49);
+		un.setBounds(191, 164, 188, 49);
 		getContentPane().add(un);
 		un.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("USERNAME");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		lblNewLabel.setBounds(52, 145, 98, 31);
+		lblNewLabel.setBounds(52, 172, 98, 31);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("PASSWORD");
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		lblNewLabel_1.setBounds(52, 212, 98, 31);
+		lblNewLabel_1.setBounds(52, 231, 98, 31);
 		getContentPane().add(lblNewLabel_1);
 		
-		JButton btnNewButton = new JButton("signup");
+		JButton btnNewButton = new JButton("SIGNUP");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -107,16 +108,16 @@ public class studentsignup extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		btnNewButton.setBounds(332, 350, 175, 49);
+		btnNewButton.setBounds(359, 350, 175, 49);
 		getContentPane().add(btnNewButton);
 		
 		pass = new JPasswordField();
-		pass.setBounds(191, 204, 188, 49);
+		pass.setBounds(191, 223, 188, 49);
 		getContentPane().add(pass);
 		
 		JLabel lblNewLabel_2 = new JLabel("STUDENT SIGNUP");
-		lblNewLabel_2.setFont(new Font("Yu Gothic UI", Font.BOLD, 24));
-		lblNewLabel_2.setBounds(298, 24, 336, 58);
+		lblNewLabel_2.setFont(new Font("Yu Gothic UI", Font.BOLD, 28));
+		lblNewLabel_2.setBounds(320, 27, 336, 58);
 		getContentPane().add(lblNewLabel_2);
 		
 		passwordField_1 = new JPasswordField();
@@ -129,32 +130,52 @@ public class studentsignup extends JFrame {
 		getContentPane().add(lblNewLabel_3);
 		
 		textField = new JTextField();
-		textField.setBounds(631, 137, 188, 49);
+		textField.setBounds(574, 164, 188, 49);
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblNewLabel_4 = new JLabel("name");
-		lblNewLabel_4.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
-		lblNewLabel_4.setBounds(528, 155, 45, 13);
+		JLabel lblNewLabel_4 = new JLabel("NAME");
+		lblNewLabel_4.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblNewLabel_4.setBounds(498, 177, 66, 20);
 		getContentPane().add(lblNewLabel_4);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(631, 219, 188, 49);
+		textField_1.setBounds(574, 223, 188, 49);
 		getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		
-		JLabel lblNewLabel_5 = new JLabel("contacts");
-		lblNewLabel_5.setBounds(528, 237, 45, 13);
+		JLabel lblNewLabel_5 = new JLabel("MOBILE");
+		lblNewLabel_5.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblNewLabel_5.setBounds(488, 238, 76, 16);
 		getContentPane().add(lblNewLabel_5);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(631, 306, 188, 43);
+		textField_2.setBounds(574, 282, 188, 43);
 		getContentPane().add(textField_2);
 		textField_2.setColumns(10);
 		
-		JLabel lblNewLabel_6 = new JLabel("email_id");
-		lblNewLabel_6.setBounds(538, 321, 45, 13);
+		JLabel lblNewLabel_6 = new JLabel("EMAIL");
+		lblNewLabel_6.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblNewLabel_6.setBounds(498, 294, 66, 16);
 		getContentPane().add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_7 = new JLabel("New label");
+		lblNewLabel_7.setIcon(new ImageIcon("C:\\Users\\neinun\\Downloads\\8880b1ab-0f2a-4fb3-90a2-64c33821.png"));
+		lblNewLabel_7.setBounds(27, 10, 98, 118);
+		getContentPane().add(lblNewLabel_7);
+		
+		JButton btnNewButton_1 = new JButton("BACK");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				landing_page obj=new landing_page();
+				obj.setVisible(true);
+				
+			}
+		});
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 10));
+		btnNewButton_1.setBounds(787, 402, 85, 21);
+		getContentPane().add(btnNewButton_1);
 		
 		
 	

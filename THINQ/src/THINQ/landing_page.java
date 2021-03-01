@@ -15,6 +15,9 @@ import java.awt.Font;
 import java.awt.Window;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class landing_page extends JFrame {	
 	private JPanel contentPane;
@@ -43,6 +46,7 @@ public class landing_page extends JFrame {
 	 * Create the application.
 	 */
 	public landing_page() {
+		getContentPane().setBackground(Color.ORANGE);
 		initialize();
 	}
 
@@ -91,6 +95,8 @@ public class landing_page extends JFrame {
 		getContentPane().setLayout(null);
 		
 		JButton teacher_login = new JButton("TEACHER LOGIN");
+		teacher_login.setForeground(Color.BLACK);
+		teacher_login.setBackground(Color.WHITE);
 		teacher_login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -104,6 +110,7 @@ public class landing_page extends JFrame {
 		getContentPane().add(teacher_login);
 		
 		JButton teacher_signup = new JButton("TEACHER SIGNUP");
+		teacher_signup.setBackground(Color.WHITE);
 		teacher_signup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -117,6 +124,7 @@ public class landing_page extends JFrame {
 		getContentPane().add(teacher_signup);
 		
 		JButton students_login = new JButton("STUDENTS LOGIN");
+		students_login.setBackground(Color.WHITE);
 		students_login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -130,6 +138,7 @@ public class landing_page extends JFrame {
 		getContentPane().add(students_login);
 		
 		JButton students_signup = new JButton("STUDENTS SIGNUP");
+		students_signup.setBackground(Color.WHITE);
 		students_signup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -142,8 +151,12 @@ public class landing_page extends JFrame {
 		students_signup.setFont(new Font("Times New Roman", Font.BOLD, 16));
 		students_signup.setBounds(427, 316, 216, 58);
 		getContentPane().add(students_signup);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\neinun\\Downloads\\8880b1ab-0f2a-4fb3-90a2-64c33821efea_200x200.png"));
+		lblNewLabel.setBounds(324, 27, 198, 214);
+		getContentPane().add(lblNewLabel);
 	}
-
 }
 
 

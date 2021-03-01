@@ -19,6 +19,10 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
 
 public class afterLoginStudent extends JFrame {
 
@@ -48,29 +52,29 @@ public class afterLoginStudent extends JFrame {
 	 * Create the frame.
 	 */
 	public afterLoginStudent() {
-		choice.setBounds(235, 429, 211, 53);
+		choice.setBounds(356, 365, 211, 53);
 		choice.setColumns(10);
-		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 892, 529);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.ORANGE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textArea.setBounds(91, 81, 355, 134);
+		textArea.setBounds(86, 112, 355, 134);
 		contentPane.add(textArea);
 		
 		
 		textArea_2.setBounds(159, 252, 602, 107);
 		contentPane.add(textArea_2);
-		textArea_1.setBounds(495, 81, 348, 134);
+		textArea_1.setBounds(447, 112, 348, 134);
 		
 		contentPane.add(textArea_1);
 		
 		contentPane.add(choice);
 		
-		JButton btnNewButton = new JButton("book Class");
+		JButton btnNewButton = new JButton("BOOK CLASS");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -107,10 +111,11 @@ public class afterLoginStudent extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(495, 445, 85, 21);
+		btnNewButton.setBounds(577, 381, 124, 21);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("logout");
+		JButton btnNewButton_1 = new JButton("LOGOUT");
+		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 16));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -119,14 +124,24 @@ public class afterLoginStudent extends JFrame {
 				obj.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(734, 445, 85, 21);
+		btnNewButton_1.setBounds(10, 10, 124, 21);
 		contentPane.add(btnNewButton_1);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\neinun\\Downloads\\8880b1ab-0f2a-4fb3-90a2-64c33821.png"));
+		lblNewLabel.setBounds(387, 10, 103, 92);
+		
+		contentPane.add(lblNewLabel);
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblNewLabel_1.setBounds(266, 382, 80, 17);
+		
+		contentPane.add(lblNewLabel_1);
 		
 		
 		
 	}
 	
 	learner gobject = new learner();
+	private final JLabel lblNewLabel = new JLabel("New label");
+	private final JLabel lblNewLabel_1 = new JLabel("Lecture ID");
 	public void fun(learner obj)
 	{
 		gobject = obj;
