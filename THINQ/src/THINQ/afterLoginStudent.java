@@ -148,7 +148,7 @@ public class afterLoginStudent extends JFrame {
 		String temp,temp2,temp3;
 		temp = details(obj);
 		temp2 = details(obj.upcoming_classes);
-		temp3 = details(landing_page.all_lectures);
+		temp3 = details1(landing_page.all_lectures);
 		textArea.setText(temp);
 		textArea_1.setText(temp2);
 		textArea_2.setText(temp3);
@@ -157,13 +157,28 @@ public class afterLoginStudent extends JFrame {
 	public String details(learner l)
 	{
 		String x;
-		x = "Name :"+l.name+"\n"+"email :"+l.email+"\n"+"Contact :"+l.contact+"\n"+"number of classes :"+l.number_of_classes+"\n" +"---------------------------------------------------------";
+		x=" Your Details are : \n---------------------------------------------------------------\n";
+		x = x + "Name :"+l.name+"\n"+"email :"+l.email+"\n"+"Contact :"+l.contact+"\n"+"number of classes :"+l.number_of_classes+"\n" +"---------------------------------------------------------";
 		return x;
 	}
 	public String details(ArrayList<lecture> l)
 	{
 		String x="";
-		String t="";
+		String t="Bought Classes: \n-----------------------------------------------------\n";
+		lecture temp=new lecture();
+		
+		for(int i=0; i<l.size();i++)
+		{
+			temp = l.get(i);
+			x = temp.ID +"\t"+ temp.specialization +"\t"+ temp.teacherName +"\t"+ temp.duration +"\t"+ temp.cost;
+			t = t +"\n"+ x ;
+		}
+		return t;
+	}
+	public String details1(ArrayList<lecture> l)
+	{
+		String x="";
+		String t="All Lectures Available: \n-----------------------------------------------------\n";
 		lecture temp=new lecture();
 		
 		for(int i=0; i<l.size();i++)
@@ -202,7 +217,8 @@ public class afterLoginStudent extends JFrame {
 	public String details(thinqer l)
 	{
 		String x;
-		x = "Name :"+l.name+"\n"+"email :"+l.email+"\n"+"Contact :"+l.contact+"\n"+"number of classes :"+l.number_of_classes+"\n" +"---------------------------------------------------------";
+		x=" Your Details are : \n---------------------------------------------------------------\n";
+		x = x + "Name :"+l.name+"\n"+"email :"+l.email+"\n"+"Contact :"+l.contact+"\n"+"number of classes :"+l.number_of_classes+"\n" +"---------------------------------------------------------";
 		return x;
 	}
 }

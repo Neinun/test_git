@@ -42,6 +42,7 @@ public class landing_page extends JFrame {
 		});
 	}
 
+	
 	/**
 	 * Create the application.
 	 */
