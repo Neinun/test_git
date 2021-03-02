@@ -157,7 +157,8 @@ public class afterLoginTeacher extends JFrame {
 		
 		
 	}
-	thinqer gobject = new thinqer();
+	factory f=new factory();
+	user gobject = f.getUser("thinqer");
 	private final JTextField textField = new JTextField();
 	private final JTextField textField_1 = new JTextField();
 	private final JTextField textField_2 = new JTextField();
@@ -165,7 +166,7 @@ public class afterLoginTeacher extends JFrame {
 	private final JLabel lblNewLabel_4 = new JLabel("New label");
 	
 	
-	public void fun(thinqer obj)
+	public void fun(user obj)
 	{
 		gobject = obj;
 		String temp,temp2,temp3;
@@ -177,7 +178,7 @@ public class afterLoginTeacher extends JFrame {
 		textArea_2.setText(temp3);
 	}
 	
-	public String details(thinqer l)
+	public String details(user l)
 	{
 		String x;
 		x=" Your Details are : \n---------------------------------------------------------------\n";

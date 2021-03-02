@@ -2,28 +2,14 @@ package THINQ;
 
 import java.util.*;
 
-public class thinqer {
+public class thinqer extends user {
 	
-	ArrayList<lecture> upcoming_classes = new ArrayList<lecture>();
-	String userName;
-	String password;
-	String name;
-	String email;
-	String number_of_classes;
-	String contact;
+	
 	thinqer()
 	{
 		
 	}
-	thinqer(String username, String password, String name, String email, String n, String contact)
-	{
-		this.userName = username;
-		this.password = password;
-		this.name = name;
-		this.email = email;
-		this.number_of_classes = n;
-		this.contact = contact;
-	}
+	
 	
 	
 	
@@ -31,5 +17,14 @@ public class thinqer {
 	{
 		
 	}
+	
+String printdetails() {
+		
+		String x;
+		x=" Your Details are : \n---------------------------------------------------------------\n";
+		x = x + "Name :"+this.name+"\n"+"email :"+this.email+"\n"+"Contact :"+this.contact+"\n"+"number of classes :"+this.number_of_classes+"\n" +"---------------------------------------------------------";
+		return x;
+	}
+
 
 }

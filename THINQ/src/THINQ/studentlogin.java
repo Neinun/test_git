@@ -44,7 +44,15 @@ public class studentlogin extends JFrame {
 	public studentlogin() {
 		getContentPane().setBackground(Color.ORANGE);
 		
-		learner l1=new learner("sumit","simp","Sumit Kumar Singh","singh.sumitkumar1@gmail.com","0","9470371605");
+		factory f=new factory();
+		user l1 = f.getUser("learner");
+		
+		l1.userName = "sumit";
+		l1.password = "simp";
+		l1.name = "Sumit Kumar Singh";
+		l1.email = "singh.sumitkumar1@gmail.com";
+		l1.number_of_classes = "0";
+		l1.contact = "9470371605";
 		studentsignup.students_list.add(l1);
 		
 		conn = connect.dbConnector();
@@ -74,6 +82,8 @@ public class studentlogin extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				factory f=new factory();
+				
 				try {
 					String query = "select * from users where username=? and password=?";
 					PreparedStatement pst= conn.prepareStatement(query);
@@ -89,7 +99,8 @@ public class studentlogin extends JFrame {
 					if(count == 1)
 					{
 						JOptionPane.showMessageDialog(null, "username and password is correct");
-						learner temp = new learner();
+						user temp=f.getUser("learner");
+						
 						for(int i=0;i<studentsignup.students_list.size();i++)
 						{
 							temp = studentsignup.students_list.get(i);

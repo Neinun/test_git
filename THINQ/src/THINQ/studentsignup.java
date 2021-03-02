@@ -21,7 +21,7 @@ public class studentsignup extends JFrame {
 	public static int count = 0;
 	private JPanel contentPane;
 	
-	public static ArrayList<learner> students_list=new ArrayList<learner>();
+	public static ArrayList<user> students_list=new ArrayList<user>();
 
 	/**
 	 * Launch the application.
@@ -82,25 +82,36 @@ public class studentsignup extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
-					int count = students_list.size();
-					String query = "INSERT INTO users(username,password) VALUES(?,?)";
-					PreparedStatement pst= conn.prepareStatement(query);
-					pst.setString(1, un.getText());
-					pst.setString(2, pass.getText());
-					pst.executeUpdate();
 					
-					learner obj=new learner();
-					obj.name = textField.getText();
-					obj.email = textField_2.getText();
-					obj.contact = textField_1.getText();
-					obj.number_of_classes = "0";
-					obj.userName = un.getText();
-					obj.password = pass.getText();
-					students_list.add(count,obj);
-					count++;
-					dispose();
-					landing_page home1 = new landing_page();
-					home1.setVisible(true);
+					if(pass.getText().equals(passwordField_1.getText())) {
+						
+						int count = students_list.size();
+						String query = "INSERT INTO users(username,password) VALUES(?,?)";
+						PreparedStatement pst= conn.prepareStatement(query);
+						pst.setString(1, un.getText());
+						pst.setString(2, pass.getText());
+						pst.executeUpdate();
+						
+						factory f=new factory();
+						user obj = f.getUser("learner");
+						
+						obj.name = textField.getText();
+						obj.email = textField_2.getText();
+						obj.contact = textField_1.getText();
+						obj.number_of_classes = "0";
+						obj.userName = un.getText();
+						obj.password = pass.getText();
+						students_list.add(count,obj);
+						count++;
+						dispose();
+						landing_page home1 = new landing_page();
+						home1.setVisible(true);
+						
+					}
+					
+					else
+						JOptionPane.showMessageDialog(null, "Passwords do not match");
+					
 					
 				}catch(Exception e1) {
 					JOptionPane.showMessageDialog(null, e);

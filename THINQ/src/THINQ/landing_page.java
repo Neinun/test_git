@@ -59,6 +59,8 @@ public class landing_page extends JFrame {
 	private void initialize() {
 		
 		
+		factory f=new factory();
+		
 		
 		lecture l1=new lecture("101","teacher1","physics","1021","1");
 		lecture l2=new lecture("102","qwerty1","physic2s","1301","2");
@@ -84,8 +86,14 @@ public class landing_page extends JFrame {
 		all_lectures.add(l9);
 		all_lectures.add(l11);
 		
+		user t1=f.getUser("thinqer");
+		t1.userName = "teacher1";
+		t1.password = "1";
+		t1.name = "paul";
+		t1.email = "paul@gmail.com";
+		t1.number_of_classes = "0";
+		t1.contact = "9108358068";
 		
-		thinqer t1=new thinqer("teacher1","1","paul","paul@gmail.com","0","9108358068");
 		teachersignup.teacher_list.add(t1);
 		
 		

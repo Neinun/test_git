@@ -20,7 +20,7 @@ import java.awt.Frame;
 public class teachersignup extends JFrame {
 	
 	
-	public static ArrayList<thinqer> teacher_list=new ArrayList<thinqer>();
+	public static ArrayList<user> teacher_list=new ArrayList<user>();
 	
 	private JPanel contentPane;
 
@@ -85,23 +85,30 @@ public class teachersignup extends JFrame {
 				int count = teacher_list.size();
 				
 				try {
-					String query = "INSERT INTO users(username,password) VALUES(?,?)";
-					PreparedStatement pst= conn.prepareStatement(query);
-					pst.setString(1, un.getText());
-					pst.setString(2, pass.getText());
-					pst.executeUpdate();
 					
-					thinqer obj=new thinqer();
-					obj.name = textField.getText();
-					obj.email = textField_2.getText();
-					obj.contact = textField_1.getText();
-					obj.number_of_classes = "0";
-					obj.userName = un.getText();
-					obj.password = pass.getText();
-					teacher_list.add(count,obj);
-					dispose();
-					landing_page home1 = new landing_page();
-					home1.setVisible(true);
+					if(pass.getText().equals(passwordField_1.getText())) {
+						
+						String query = "INSERT INTO users(username,password) VALUES(?,?)";
+						PreparedStatement pst= conn.prepareStatement(query);
+						pst.setString(1, un.getText());
+						pst.setString(2, pass.getText());
+						pst.executeUpdate();
+						
+						thinqer obj=new thinqer();
+						obj.name = textField.getText();
+						obj.email = textField_2.getText();
+						obj.contact = textField_1.getText();
+						obj.number_of_classes = "0";
+						obj.userName = un.getText();
+						obj.password = pass.getText();
+						teacher_list.add(count,obj);
+						dispose();
+						landing_page home1 = new landing_page();
+						home1.setVisible(true);
+					}
+					else
+						JOptionPane.showMessageDialog(null, "Passwords do not match");
+					
 					
 				}catch(Exception e1) {
 					JOptionPane.showMessageDialog(null, e);

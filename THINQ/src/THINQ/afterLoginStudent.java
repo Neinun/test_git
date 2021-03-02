@@ -77,10 +77,10 @@ public class afterLoginStudent extends JFrame {
 		JButton btnNewButton = new JButton("BOOK CLASS");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				factory f=new factory();
 				String ch = choice.getText();
 				lecture temp=new lecture();
-				thinqer temp1 = new thinqer();
+				user temp1 = f.getUser("thinqer");
 				
 				for(int i=0;i<landing_page.all_lectures.size();i++)
 				{
@@ -138,11 +138,12 @@ public class afterLoginStudent extends JFrame {
 		
 		
 	}
+	factory f=new factory();
+	user gobject = f.getUser("learner");
 	
-	learner gobject = new learner();
 	private final JLabel lblNewLabel = new JLabel("New label");
 	private final JLabel lblNewLabel_1 = new JLabel("Lecture ID");
-	public void fun(learner obj)
+	public void fun(user obj)
 	{
 		gobject = obj;
 		String temp,temp2,temp3;
@@ -154,7 +155,7 @@ public class afterLoginStudent extends JFrame {
 		textArea_2.setText(temp3);
 	}
 	
-	public String details(learner l)
+	public String details(user l)
 	{
 		String x;
 		x=" Your Details are : \n---------------------------------------------------------------\n";
@@ -190,7 +191,7 @@ public class afterLoginStudent extends JFrame {
 		return t;
 	}
 	
-	void update_classes(learner l)
+	void update_classes(user l)
 	{
 		String s,s1;
 		int temp = Integer.valueOf(l.number_of_classes);
@@ -202,17 +203,7 @@ public class afterLoginStudent extends JFrame {
 		textArea_1.setText(s);
 	}
 	
-	void update_classes(thinqer l)
-	{
-		String s,s1;
-		int temp = Integer.valueOf(l.number_of_classes);
-		temp += 1;
-		l.number_of_classes = String.valueOf(temp);
-		s = details(l.upcoming_classes);
-		s1 = details(l);
-		textArea.setText(s1);
-		textArea_1.setText(s);
-	}
+
 	
 	public String details(thinqer l)
 	{

@@ -69,6 +69,9 @@ public class teacher_login {
 		btnlogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				factory f=new factory();
+				
+				
 				try {
 					String query = "select * from users where username=? and password=?";
 					PreparedStatement pst= conn.prepareStatement(query);
@@ -84,8 +87,7 @@ public class teacher_login {
 					if(count == 1)
 					{
 						JOptionPane.showMessageDialog(null, "username and password is correct");
-						
-						thinqer temp = new thinqer();
+						user temp= f.getUser("thinqer");
 						for(int i=0;i<teachersignup.teacher_list.size();i++)
 						{
 							temp = teachersignup.teacher_list.get(i);

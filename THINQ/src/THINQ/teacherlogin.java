@@ -87,8 +87,8 @@ public class teacherlogin extends JFrame {
 					if(count == 1)
 					{
 						JOptionPane.showMessageDialog(null, "username and password is correct");
-						
-						thinqer temp = new thinqer();
+						factory f=new factory();
+						user temp = f.getUser("thinqer");
 						for(int i=0;i<teachersignup.teacher_list.size();i++)
 						{
 							temp = teachersignup.teacher_list.get(i);
