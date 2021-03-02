@@ -24,7 +24,7 @@ import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.Color;
 
-public class afterLoginTeacher extends JFrame {
+public class afterLoginTeacher extends JFrame implements afterloginuser{
 
 	private JPanel contentPane;
 	JTextArea textArea = new JTextArea();
@@ -218,8 +218,11 @@ public class afterLoginTeacher extends JFrame {
 		}
 		return t;
 	}
-	
-	void update_classes(thinqer l)
+	public String details1(ArrayList<lecture> l)
+	{
+		return null;
+	}
+	void update_classes(user l)
 	{
 		String s,s1;
 		int temp = Integer.valueOf(l.number_of_classes);

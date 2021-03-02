@@ -24,7 +24,7 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Font;
 
-public class afterLoginStudent extends JFrame {
+public class afterLoginStudent extends JFrame implements afterloginuser{
 
 	private JPanel contentPane;
 	JTextArea textArea = new JTextArea();
