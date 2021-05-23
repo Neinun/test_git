@@ -98,13 +98,60 @@ public class teachersignup extends JFrame {
 						obj.name = textField.getText();
 						obj.email = textField_2.getText();
 						obj.contact = textField_1.getText();
-						obj.number_of_classes = "0";
-						obj.userName = un.getText();
-						obj.password = pass.getText();
-						teacher_list.add(count,obj);
-						dispose();
-						landing_page home1 = new landing_page();
-						home1.setVisible(true);
+						int flag=0;
+						
+						
+						for(int i=0;i<obj.contact.length();i++)
+						{
+							char c=obj.contact.charAt(i);
+							System.out.println(c);
+							if(c=='0'|| c=='1'|| c=='2'||c=='3'||c=='4'||c=='5'||c=='6'||c=='7'||c=='8'||c=='9')
+								flag = 0;
+							else {
+								flag=1;
+								break;
+							}
+								
+						}
+						
+						int check = 0;
+						
+						for(int i=0;i<obj.email.length();i++)
+						{
+							char c1=obj.email.charAt(i);
+							if(c1=='@')
+								check = check +1;
+							if(c1=='.')
+								check= check+1;
+							
+						}
+						System.out.println(check);
+						
+						if(obj.contact.length()!=10 && flag == 0)
+							flag=1;
+						
+						
+						if(flag == 1)
+							JOptionPane.showMessageDialog(null, "error in contact details");
+						else if(flag==0)
+						{
+							if(check == 2)
+							{
+								obj.number_of_classes = "0";
+								obj.userName = un.getText();
+								obj.password = pass.getText();
+								teacher_list.add(count,obj);
+								dispose();
+								landing_page home1 = new landing_page();
+								home1.setVisible(true);
+							}
+							
+							else 
+								JOptionPane.showMessageDialog(null, "Error in email");
+							
+						}
+						
+						
 					}
 					else
 						JOptionPane.showMessageDialog(null, "Passwords do not match");

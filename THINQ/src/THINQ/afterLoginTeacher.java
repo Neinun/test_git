@@ -20,6 +20,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.Color;
@@ -84,19 +85,53 @@ public class afterLoginTeacher extends JFrame implements afterloginuser{
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
-					
+					int flag1=0,flag2=0;;
 					lecture l1 = new lecture();
 					l1.ID = String.valueOf(landing_page.all_lectures.size());
 					l1.teacherName= textField.getText();
 					l1.specialization = textField_1.getText();
 					l1.duration = textField_2.getText();
 					l1.cost = textField_3.getText();
+					for(int i=0;i<l1.cost.length();i++)
+					{
+						char c=l1.cost.charAt(i);
+						//System.out.println(c);
+						if(c=='0'|| c=='1'|| c=='2'||c=='3'||c=='4'||c=='5'||c=='6'||c=='7'||c=='8'||c=='9')
+							flag1 = 0;
+						else {
+							flag1=1;
+							break;
+						}	
+					}
 					
-					System.out.println(landing_page.all_lectures.size());
-					landing_page.all_lectures.add(l1);
-					System.out.println(landing_page.all_lectures.size());
-					String s = details1(landing_page.all_lectures,l1.teacherName);
-					textArea_2.setText(s);
+					for(int i=0;i<l1.duration.length();i++)
+					{
+						char c=l1.duration.charAt(i);
+						//System.out.println(c);
+						if(c=='0'|| c=='1'|| c=='2'||c=='3'||c=='4'||c=='5'||c=='6'||c=='7'||c=='8'||c=='9')
+							flag2 = 0;
+						else {
+							flag2=1;
+							break;
+						}	
+					}
+					
+					if(flag1 == 1 && flag2==0)
+						JOptionPane.showMessageDialog(null, "Enter valid Cost of lecture");
+					if(flag2 == 1 && flag1==0)
+						JOptionPane.showMessageDialog(null, "Enter valid Duration of lecture");
+					if(flag1==1 && flag2==1)
+						JOptionPane.showMessageDialog(null, "Enter valid Duration and Cost of lecture");
+					
+					else if(flag1==0 && flag2 == 0)
+					{
+						System.out.println(landing_page.all_lectures.size());
+						landing_page.all_lectures.add(l1);
+						System.out.println(landing_page.all_lectures.size());
+						String s = details1(landing_page.all_lectures,l1.teacherName);
+						textArea_2.setText(s);
+					}
+					
 					
 					
 					
